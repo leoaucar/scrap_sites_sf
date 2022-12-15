@@ -10,7 +10,7 @@ scraper = cloudscraper.create_scraper()
 lista_links = []
 with open('./links.csv', 'r') as f:
     for i in f:
-        link = i.split(',')
+        link, empresa = i.split(',')
         lista_links.append(link[0])
 
 #print(lista_links)
@@ -30,7 +30,7 @@ for i in lista_links:
     row.append(m.group(0))
     row.append(body.text)
     row.append(url)
-    row.append(link[1]) #empresa
+    row.append(empresa) #empresa
     lista_conteudos.append(row)
 
 with open('./conteudos.csv', 'w') as f:
