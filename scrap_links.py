@@ -10,6 +10,7 @@ scraper = cloudscraper.create_scraper()
 
 busca = ['Volkswagen', 'Jaguar']
 
+#transformar em função
 for palavra in busca:
     lista_links = []
     p = 1

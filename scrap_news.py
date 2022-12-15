@@ -3,6 +3,8 @@ from bs4 import BeautifulSoup
 import csv
 import re
 
+
+#transformar em função
 scraper = cloudscraper.create_scraper()
 
 lista_links = []
@@ -28,11 +30,12 @@ for i in lista_links:
     row.append(m.group(0))
     row.append(body.text)
     row.append(url)
-    row.append(link[1])
+    row.append(link[1]) #empresa
     lista_conteudos.append(row)
 
 with open('./conteudos.csv', 'w') as f:
     writer = csv.writer(f)
+    writer.writerow(["TITULO", "DATA", "CONT", "LINK","EMPRESA"])
     for i in lista_conteudos:
         writer.writerow(i)
 f.close()
